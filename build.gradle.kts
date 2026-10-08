@@ -4,10 +4,9 @@ plugins {
 }
 
 val addonName = project.property("addon-name") as String
-val is3rd = project.property("is-3rd") as String == "true"
 
 base {
-    archivesName = "${if (is3rd) "liquidbounce-3rd-addon-" else "liquidbounce-addon-"}$addonName"
+    archivesName = "liquidbounce-3rd-addon-$addonName"
     version = "${project.property("mod_version")}+${libs.versions.minecraft.get()}"
     group = project.property("maven_group") as String
 }
