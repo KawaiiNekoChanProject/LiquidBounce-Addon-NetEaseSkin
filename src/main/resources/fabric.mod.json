@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "liquidbounce-addon-netease-skin",
+  "id": "${id}",
   "version": "${version}",
   "name": "NetEase Skin",
   "description": "一个 LiquidBounce 扩展, 允许你在游玩 Minecraft 中国版服务器时显示玩家皮肤",
