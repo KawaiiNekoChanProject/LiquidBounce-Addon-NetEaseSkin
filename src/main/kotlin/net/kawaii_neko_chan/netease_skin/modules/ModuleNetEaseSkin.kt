@@ -5,6 +5,7 @@ import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsChannel
 import io.ktor.utils.io.jvm.javaio.toInputStream
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -36,19 +37,21 @@ import kotlin.time.Duration.Companion.seconds
 
 object ModuleNetEaseSkin : ClientModule("NetEaseSkin", ModuleCategories.MISC) {
 
-    private val cookie by text("Cookie", "")
+    val cookie by text("Cookie", "")
     val self by boolean("Self", false)
+
 
     @JvmField
     val defaultSkin = DefaultPlayerSkin.getDefaultSkin()
 
+    var job: Job? = null
     var session: WPLauncherAccountAPI? = null
     val skins = hashMapOf<ULong, NativeImage>()
     val playerSkins = hashMapOf<UUID, PlayerSkin>()
     val queue = Channel<UUID>(Channel.UNLIMITED)
 
     override fun onEnabled() {
-        ioScope.launch {
+        job = ioScope.launch {
             runCatching {
                 runCatching { session?.getSelfDetail() }.onFailure { session = null }
                 if (session == null) session = WPLauncherAPI.newInstance().login(WPLauncherCookieRaw(cookie))
@@ -112,6 +115,11 @@ object ModuleNetEaseSkin : ClientModule("NetEaseSkin", ModuleCategories.MISC) {
                     enabled = false
                 }
         }
+    }
+
+    override fun onDisabled() {
+        job?.cancel()
+        job = null
     }
 
     @JvmStatic
