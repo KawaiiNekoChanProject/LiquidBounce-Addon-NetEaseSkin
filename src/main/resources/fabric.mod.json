@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "liquidbounce-addon-netease-skin",
+  "version": "${version}",
+  "name": "NetEase Skin",
+  "description": "一个 LiquidBounce 扩展, 允许你在游玩 Minecraft 中国版服务器时显示玩家皮肤",
+  "authors": [
+    "NekoCurit"
+  ],
+  "contact": {},
+  "license": "GNU General Public License v3.0",
+  "environment": "client",
+  "entrypoints": {
+    "liquidbounce": [
+      "net.kawaii_neko_chan.netease_skin.NetEaseSkinAddon"
+    ]
+  },
+  "mixins": [
+    "netease-skin.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "~${minecraft_version}",
+    "fabricloader": ">=${loader_version}",
+    "fabric-language-kotlin": ">=${fabric_kotlin_version}",
+    "liquidbounce": "*"
+  },
+  "custom": {
+    "liquidbounce": {
+      "color": "#FF5555"
+    },
+    "modmenu": {
+      "parent": "liquidbounce"
+    }
+  }
+}

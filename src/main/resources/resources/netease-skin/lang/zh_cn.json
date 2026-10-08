@@ -1,0 +1,5 @@
+{
+  "liquidbounce.module.netEaseSkin.description": "允许你在游玩 Minecraft 中国版服务器时显示玩家皮肤",
+  "liquidbounce.module.netEaseSkin.value.cookie.description": "此处粘贴 Cookie, 不能和脱盒使用同一个, 会顶号",
+  "liquidbounce.module.netEaseSkin.messages.cookieInvalid": "登陆启动器账号失败: %s"
+}
