@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.kawaii_neko_chan.netease_skin.mixin",
+  "compatibilityLevel": "JAVA_25",
+  "client": [
+    "MixinAbstractClientPlayer",
+    "MixinPlayerInfo"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
