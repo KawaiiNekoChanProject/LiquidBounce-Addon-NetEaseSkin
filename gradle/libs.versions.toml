@@ -5,7 +5,7 @@ minecraft = "26.3"
 fabric-loom = "1.18.2"
 fabric-loader = "0.19.5"
 
-kotlin = "2.4.20"
+kotlin = "2.4.21"
 fabric-kotlin = "1.14.1+kotlin.2.4.20"
 
 # The add-on compiles against the client itself; there is no separate API artifact.
