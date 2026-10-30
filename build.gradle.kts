@@ -33,9 +33,6 @@ jij.excludeProvidedLibs()
 dependencies {
     minecraft(libs.minecraft)
 
-    implementation(libs.fabric.loader)
-    implementation(libs.fabric.kotlin)
-
     implementation(libs.liquidbounce)
 
     jij(libs.wplauncher.helper)
@@ -44,13 +41,19 @@ dependencies {
 
 addResolvedDependencies(jij, "compileOnly", "include", "api")
 
+val clientVersions = configurations.compileClasspath.map { classpath ->
+    classpath.incoming.resolutionResult.allComponents
+        .mapNotNull { it.moduleVersion }
+        .associate { "${it.group}:${it.name}" to it.version }
+}
+
 tasks.processResources {
     val modVersion = providers.gradleProperty("mod_version").zip(libs.versions.minecraft) { version, minecraft ->
         "$version+$minecraft"
     }
     val minecraftVersion = libs.versions.minecraft
-    val loaderVersion = libs.versions.fabric.loader
-    val fabricKotlinVersion = libs.versions.fabric.kotlin
+    val loaderVersion = clientVersions.map { it.getValue("net.fabricmc:fabric-loader") }
+    val fabricKotlinVersion = clientVersions.map { it.getValue("net.fabricmc:fabric-language-kotlin") }
 
     inputs.property("version", modVersion)
     inputs.property("minecraft_version", minecraftVersion)
