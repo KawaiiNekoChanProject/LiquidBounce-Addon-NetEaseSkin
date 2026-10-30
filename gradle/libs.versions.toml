@@ -12,7 +12,7 @@ fabric-kotlin = "1.14.1+kotlin.2.4.20"
 # Use `<version>+<mc>` for a release or `<version>+<mc>-SNAPSHOT` to track nextgen.
 liquidbounce = "0.41.0+26.3"
 
-wplauncher-helper = "1.0.5"
+wplauncher-helper = "1.0.6"
 ktor = "3.6.0"
 
 [libraries]
