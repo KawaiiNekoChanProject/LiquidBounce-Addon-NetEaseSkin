@@ -3,22 +3,18 @@
 [versions]
 minecraft = "26.3"
 fabric-loom = "1.18.2"
-fabric-loader = "0.19.5"
 
 kotlin = "2.4.21"
-fabric-kotlin = "1.14.1+kotlin.2.4.20"
 
 # The add-on compiles against the client itself; there is no separate API artifact.
 # Use `<version>+<mc>` for a release or `<version>+<mc>-SNAPSHOT` to track nextgen.
-liquidbounce = "0.41.0+26.3"
+liquidbounce = "0.42.0+26.3"
 
 wplauncher-helper = "1.0.6"
 ktor = "3.6.0"
 
 [libraries]
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
-fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
-fabric-kotlin = { group = "net.fabricmc", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
 liquidbounce = { group = "net.ccbluex", name = "liquidbounce", version.ref = "liquidbounce" }
 
 wplauncher-helper = { module = "io.github.kawaiinekochanproject:wplauncher-helper", version.ref = "wplauncher-helper" }
